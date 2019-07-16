@@ -7,6 +7,14 @@ Create an object represents you
 have your first name, last name, age, dob(date of birth), favorite food (3),favorite movie (5)
 */
 
+var me = {
+  firstName: "Orayb", 
+  lastName: "Alsmadi", 
+  age:28, 
+  dob:"17 Dec 1991", 
+  favoriteFood: ["msa5n", "ma5shi", "mansaf"],
+  favoriteMovie: ["The equalizer", "john Wick", "me before you", "alaaddin", " pirates of the caribbean"],
+}
 
 
 
@@ -29,7 +37,16 @@ and return all the first name of the person insides
 
 Ex: firstName(persons) => ['John', 'Alex', 'Alice', 'Thor', 'Soso']
 */
+function firstName(x)
+{
+var name =[];
 
+for (var i =0; i< x.length; i++){
+name.push(x[i].name["first"])
+}
+return name;
+
+}
 
 /*
 3
@@ -39,8 +56,17 @@ that accept an object
 and return the average age of those persons
 
 Ex: averageAge(persons) => 41.2
-*/
 
+*/
+function averageAge(x)
+{
+var age =0;
+
+for (var i =0; i< x.length; i++){
+age= age + x[i].age;
+}
+return age/(x.length);
+}
 
 /*
 4
@@ -51,6 +77,24 @@ and return the full name of the older person
 
 Ex: olderPerson(persons) => "Soso Al-Amora"
 */
+function olderPerson(x)
+{
+var index =0;
+minAge= x[0].age;
+
+
+for (var i =1; i< x.length; i++){
+
+if (x[i].age > minAge)
+{index =i;
+minAge= x[i].age;}
+
+  var name = x[index].name["first"]+" "+ x[index].name["last"];
+}
+return name;
+}
+
+
 
 
 /*
@@ -62,7 +106,32 @@ and return the full name of the person have longest full name
 
 Ex: longestName(persons) => "Soso Al-Amora"
 */
+function longestName(x)
+{
+  var name = x[0].name["first"]+" "+ x[0].name["last"];
+  var l =name.length;
+  maxName= name;
 
+
+  for (var i = 1; i < x.length; i++) {
+
+
+    // if ((x[i].name["first"] + " " + x[i].name["last"]).length > l) {
+    //   l = (x[i].name["first"] + " " + x[i].name["last"]).length;
+    //   maxName = x[i].name["first"] + " " + x[i].name["last"];
+    // }
+
+    name = x[i].name["first"] + " " + x[i].name["last"];
+    
+    if (name.length > l) {
+      l = name.length;
+      maxName = name;
+    }
+
+
+  }
+return maxName;
+}
 
 /*
 6
